@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptivephish"
+version = "0.1.0"
+description = "Academic phishing URL detection research with temporal drift detection and automated retraining."
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["adaptivephish*"]
+namespaces = false

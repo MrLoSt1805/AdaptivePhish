@@ -1,0 +1,3 @@
+# AdaptivePhish starter dependency file.
+# Add dependencies incrementally when their implementation step is approved.
+# No ML or MLOps packages are required for the project skeleton.

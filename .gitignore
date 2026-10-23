@@ -1,0 +1,61 @@
+# Local Python environment and bytecode
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+.aws/
+credentials/
+secrets/
+*.pem
+*.key
+
+# Tool caches and test outputs
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
+
+# Logs, packaging outputs, and experiment outputs
+*.log
+logs/
+build/
+dist/
+*.egg-info/
+mlruns/
+mlartifacts/
+
+# Datasets: retain directory placeholders and future DVC pointer files
+/data/raw/*
+!/data/raw/.gitkeep
+!/data/raw/*.dvc
+/data/interim/*
+!/data/interim/.gitkeep
+!/data/interim/*.dvc
+/data/processed/*
+!/data/processed/.gitkeep
+!/data/processed/*.dvc
+
+# Generated models and reports
+/artifacts/*
+!/artifacts/.gitkeep
+!/artifacts/*.dvc
+/reports/figures/*
+!/reports/figures/.gitkeep
+!/reports/figures/*.dvc
+/reports/results/*
+!/reports/results/.gitkeep
+!/reports/results/*.dvc
+
+# Keep future DVC metadata trackable; exclude only local cache/configuration
+/.dvc/cache/
+/.dvc/tmp/
+/.dvc/config.local
