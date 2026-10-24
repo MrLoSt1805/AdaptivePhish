@@ -1,0 +1,11 @@
+# Immutable source contract for the first approved PhreshPhish ingestion shard.
+dataset = "phreshphish/phreshphish"
+revision = "eca603e0ecd4f698f8d4d226c088659e72681239"
+split = "train"
+shard = "data/train-001.parquet"
+expected_file_size = 322018201
+expected_row_groups = 1
+expected_rows = 5780
+selected_columns = ["sha256", "url", "label", "date"]
+application_body_budget = 2097152
+maximum_http_requests = 32
