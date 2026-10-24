@@ -9,7 +9,12 @@ from unittest.mock import patch
 
 import pyarrow as pa
 
-from adaptivephish.data.validation import ValidationError, validate_batches
+from adaptivephish.data import validation
+from adaptivephish.data.validation import (
+    ValidationError,
+    normalize_batch,
+    validate_batches,
+)
 
 
 COLUMNS = ('sha256', 'url', 'label', 'date')
@@ -78,6 +83,55 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaises(ValidationError) as type_error:
             validate_batches([wrong_type])
         self.assertEqual(type_error.exception.category, 'invalid_arrow_types')
+
+    def test_large_string_is_checked_and_preserves_exact_values(self):
+        values = [
+            ('A' * 64, 'HTTPS://Case.invalid/A Path?x=One', 'benign',
+             datetime.date(2025, 3, 1)),
+            ('b' * 64, 'noscheme.invalid/CaseSensitive', 'phish',
+             datetime.date(2025, 3, 2)),
+        ]
+        schema = pa.schema([
+            ('sha256', pa.large_string()),
+            ('url', pa.large_string()),
+            ('label', pa.large_string()),
+            ('date', pa.date32()),
+        ])
+        source = batch(values, schema=schema)
+        normalized = normalize_batch(source)
+        self.assertEqual(
+            normalized.schema.types,
+            [pa.string(), pa.string(), pa.string(), pa.date32()],
+        )
+        self.assertEqual(normalized.to_pylist(), source.to_pylist())
+        summary = validate_batches([source])
+        self.assertTrue(summary.valid)
+        self.assertEqual(summary.row_count, 2)
+
+    def test_large_string_nulls_remain_null_and_are_rejected(self):
+        schema = pa.schema([
+            ('sha256', pa.large_string()), ('url', pa.large_string()),
+            ('label', pa.large_string()), ('date', pa.date32()),
+        ])
+        source = batch([(None, None, None, None)], schema=schema)
+        normalized = normalize_batch(source)
+        self.assertEqual(normalized.to_pylist(), source.to_pylist())
+        with self.assertRaises(ValidationError) as error:
+            validate_batches([source])
+        self.assertEqual(error.exception.category, 'missing_required_value')
+
+    def test_unsafe_large_string_conversion_is_sanitized(self):
+        schema = pa.schema([
+            ('sha256', pa.large_string()), ('url', pa.large_string()),
+            ('label', pa.large_string()), ('date', pa.date32()),
+        ])
+        source = batch(self.rows, schema=schema)
+        with patch.object(validation.pc, 'cast',
+                          side_effect=RuntimeError('PRIVATE_VALUE')):
+            with self.assertRaises(ValidationError) as error:
+                normalize_batch(source)
+        self.assertEqual(error.exception.category, 'unsafe_schema_conversion')
+        self.assertNotIn('PRIVATE_VALUE', str(error.exception))
 
     def test_invalid_identifier_label_and_empty_url_are_counted(self):
         rows = [('not-a-hash', '   ', 'unknown', datetime.date(2025, 1, 1))]

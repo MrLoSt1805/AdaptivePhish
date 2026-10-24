@@ -7,6 +7,7 @@ from adaptivephish.data.output_writer import (
     write_validated_parquet,
 )
 from adaptivephish.data.source_config import SourceConfigError, load_source_config
+from adaptivephish.data.validation import ValidationError, normalize_batches
 
 
 BATCH_SIZE = 1_024
@@ -78,9 +79,9 @@ def _read_selected_batches(reader, expected_row_groups, expected_rows):
 def _publish(reader, output_path, expected_row_groups, expected_rows,
              approved_shard):
     try:
-        batches = _read_selected_batches(
+        batches = normalize_batches(_read_selected_batches(
             reader, expected_row_groups, expected_rows
-        )
+        ))
         if not reader.accounting_complete:
             raise remote_parquet.SafetyError('transport_unmetered')
         document = write_validated_parquet(
@@ -96,6 +97,8 @@ def _publish(reader, output_path, expected_row_groups, expected_rows,
         category = remote_parquet._failure_category(error.category)
         raise IngestionError(category) from None
     except OutputWriterError as error:
+        raise IngestionError(error.category) from None
+    except ValidationError as error:
         raise IngestionError(error.category) from None
     except Exception:
         raise IngestionError('ingestion_failed') from None

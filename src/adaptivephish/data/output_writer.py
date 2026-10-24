@@ -11,7 +11,12 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from adaptivephish.data.source_config import load_source_config
-from adaptivephish.data.validation import COLUMNS, ValidationError, validate_batches
+from adaptivephish.data.validation import (
+    COLUMNS,
+    ValidationError,
+    normalize_batches,
+    validate_batches,
+)
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
@@ -154,7 +159,7 @@ def write_validated_parquet(batches, output_path, approved_shard=False):
     config = load_source_config()
 
     try:
-        materialized = list(batches)
+        materialized = normalize_batches(batches)
         summary = validate_batches(materialized)
     except ValidationError:
         raise OutputWriterError('validation_failed') from None

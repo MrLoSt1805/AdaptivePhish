@@ -15,16 +15,17 @@ import pyarrow.parquet as pq
 from adaptivephish.data import ingestion, output_writer, remote_parquet
 
 
-def make_source(rows=None):
+def make_source(rows=None, large_strings=False):
     rows = rows or [
         ('a' * 64, 'https://first.invalid/path', 'benign', datetime.date(2025, 1, 1)),
         ('b' * 64, 'second.invalid/path', 'phish', datetime.date(2025, 1, 2)),
         ('a' * 64, 'https://first.invalid/path', 'benign', datetime.date(2025, 1, 1)),
     ]
+    text_type = pa.large_string() if large_strings else pa.string()
     table = pa.table({
-        'sha256': [row[0] for row in rows],
-        'url': [row[1] for row in rows],
-        'label': [row[2] for row in rows],
+        'sha256': pa.array([row[0] for row in rows], type=text_type),
+        'url': pa.array([row[1] for row in rows], type=text_type),
+        'label': pa.array([row[2] for row in rows], type=text_type),
         'target': [None] * len(rows),
         'date': [row[3] for row in rows],
         'lang': ['en'] * len(rows),
@@ -152,6 +153,23 @@ class IngestionIntegrationTests(unittest.TestCase):
         self.assertFalse(self.output.exists())
         self.assertFalse(self.sidecar.exists())
         self.assertEqual(list(output_writer.APPROVED_DIRECTORY.glob('.adaptivephish-*')), [])
+
+    def test_large_string_source_is_published_canonically_without_changes(self):
+        rows = [
+            ('c' * 64, 'HTTPS://MixedCase.invalid/A Path', 'benign',
+             datetime.date(2025, 4, 1)),
+            ('d' * 64, 'no-scheme.invalid/Exact?Q=Value', 'phish',
+             datetime.date(2025, 4, 2)),
+        ]
+        data, source = make_source(rows, large_strings=True)
+        reader, _ = self.reader(data)
+        ingestion._ingest_with_offline_reader(
+            reader, self.output, expected_rows=source.num_rows
+        )
+        result = pq.read_table(self.output)
+        self.assertEqual(result.schema, output_writer.EXPECTED_SCHEMA)
+        self.assertEqual(result.to_pylist(),
+                         source.select(list(remote_parquet.COLUMNS)).to_pylist())
 
     def test_unexpected_dimensions_fail_before_publication(self):
         data, source = make_source()
