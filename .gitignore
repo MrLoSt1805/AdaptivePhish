@@ -37,6 +37,7 @@ mlartifacts/
 /data/raw/*
 !/data/raw/.gitkeep
 !/data/raw/*.dvc
+!/data/raw/phreshphish/
 /data/interim/*
 !/data/interim/.gitkeep
 !/data/interim/*.dvc
