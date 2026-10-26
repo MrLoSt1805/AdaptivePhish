@@ -34,18 +34,19 @@ class OutputWriterTests(unittest.TestCase):
         )
         self.network_block.start()
         self.addCleanup(self.network_block.stop)
-        output_writer.APPROVED_DIRECTORY.mkdir(parents=True, exist_ok=True)
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary_directory.cleanup)
+        self.test_directory = Path(self.temporary_directory.name)
+        self.directory_patch = patch.object(
+            output_writer, 'APPROVED_DIRECTORY', self.test_directory
+        )
+        self.directory_patch.start()
+        self.addCleanup(self.directory_patch.stop)
+        self.ignore_patch = patch.object(output_writer, '_require_git_ignored')
+        self.ignore_patch.start()
+        self.addCleanup(self.ignore_patch.stop)
         self.output = output_writer.APPROVED_DIRECTORY / 'offline-test.parquet'
         self.sidecar = output_writer.manifest_path(self.output)
-        self.cleanup_outputs()
-        self.addCleanup(self.cleanup_outputs)
-
-    def cleanup_outputs(self):
-        self.output.unlink(missing_ok=True)
-        self.sidecar.unlink(missing_ok=True)
-        if output_writer.APPROVED_DIRECTORY.exists():
-            for path in output_writer.APPROVED_DIRECTORY.glob('.adaptivephish-*'):
-                path.unlink(missing_ok=True)
 
     def test_success_schema_checksum_manifest_and_completion(self):
         document = output_writer.write_validated_parquet(
@@ -177,8 +178,9 @@ class OutputWriterTests(unittest.TestCase):
                       {'incomplete_output', 'output_verification_failed'})
 
     def test_git_ignore_failure_stops_before_writing(self):
-        with patch.object(output_writer.subprocess, 'run') as run:
-            run.return_value.returncode = 1
+        failure = output_writer.OutputWriterError('output_not_git_ignored')
+        with patch.object(output_writer, '_require_git_ignored',
+                          side_effect=failure):
             with self.assertRaises(output_writer.OutputWriterError) as error:
                 output_writer.write_validated_parquet([make_batch()], self.output)
         self.assertEqual(error.exception.category, 'output_not_git_ignored')

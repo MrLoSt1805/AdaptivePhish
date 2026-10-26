@@ -6,6 +6,7 @@ import io
 import json
 import socket
 from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -87,18 +88,19 @@ class IngestionIntegrationTests(unittest.TestCase):
         )
         self.network_block.start()
         self.addCleanup(self.network_block.stop)
-        output_writer.APPROVED_DIRECTORY.mkdir(parents=True, exist_ok=True)
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary_directory.cleanup)
+        self.test_directory = Path(self.temporary_directory.name)
+        self.directory_patch = patch.object(
+            output_writer, 'APPROVED_DIRECTORY', self.test_directory
+        )
+        self.directory_patch.start()
+        self.addCleanup(self.directory_patch.stop)
+        self.ignore_patch = patch.object(output_writer, '_require_git_ignored')
+        self.ignore_patch.start()
+        self.addCleanup(self.ignore_patch.stop)
         self.output = output_writer.APPROVED_DIRECTORY / 'ingestion-offline.parquet'
         self.sidecar = output_writer.manifest_path(self.output)
-        self.cleanup_outputs()
-        self.addCleanup(self.cleanup_outputs)
-
-    def cleanup_outputs(self):
-        self.output.unlink(missing_ok=True)
-        self.sidecar.unlink(missing_ok=True)
-        if output_writer.APPROVED_DIRECTORY.exists():
-            for path in output_writer.APPROVED_DIRECTORY.glob('.adaptivephish-*'):
-                path.unlink(missing_ok=True)
 
     def reader(self, data):
         transport = LocalRangeTransport(data)

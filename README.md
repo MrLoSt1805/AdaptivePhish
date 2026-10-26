@@ -22,7 +22,7 @@ AdaptivePhish is an academic research project planned to study phishing URL dete
 - FastAPI for prediction serving and Docker for packaging.
 - GitHub Actions for CI/CD and AWS EC2 for deployment.
 
-These technologies are planned; their integrations and dependencies have not been added in this step.
+PyArrow and DVC are now used for the bounded Phase 2 dataset workflow. The remaining technologies are planned and have not been integrated yet.
 
 ## Planned MLOps workflow
 
@@ -30,6 +30,6 @@ Acquire and version data → prepare temporal splits → engineer URL features �
 
 ## Current status
 
-**Project setup only.** The directory skeleton and starter metadata are present. Dataset handling, features, training, experiment tracking, drift detection, retraining, governance, serving, containers, CI/CD, and deployment are not implemented.
+**Phase 2 dataset work is complete for one approved PhreshPhish shard.** The project has a revision-pinned, column-only ingestion path, local validation and auditing, and DVC pointer tracking. See [docs/phase2_completion.md](docs/phase2_completion.md) for the verified scope and limitations.
 
-`requirements.txt` intentionally contains comments only. Configuration and implementation will be added one small step at a time.
+Feature engineering, temporal splitting, training, experiment tracking, drift detection, retraining, governance, serving, containers, CI/CD, and deployment are not implemented. Work continues one approved phase at a time.
