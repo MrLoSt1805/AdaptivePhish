@@ -1,0 +1,149 @@
+{
+  "feature_names": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "query_length",
+    "fragment_length",
+    "dot_count",
+    "digit_count",
+    "hyphen_count",
+    "slash_count",
+    "subdomain_count",
+    "https_flag",
+    "ip_literal_flag",
+    "at_sign_flag",
+    "percent_encoding_count",
+    "underscore_count",
+    "equals_count",
+    "ampersand_count",
+    "question_mark_count",
+    "special_character_count",
+    "digit_ratio",
+    "hostname_ratio",
+    "path_ratio",
+    "query_parameter_count",
+    "suspicious_keyword_count",
+    "punycode_flag",
+    "explicit_port_flag"
+  ],
+  "feature_schema_version": "url-lexical-v1",
+  "latency_method": "single-threaded predict_proba plus predict wall time",
+  "limitations": [
+    "single source shard",
+    "random split is not temporal evaluation",
+    "lexical URL features only"
+  ],
+  "random_seed": 42,
+  "report_version": "phase3-v1",
+  "selected_model": "lightgbm",
+  "selection_metric": "validation_f1",
+  "source": {
+    "dataset": "phreshphish/phreshphish",
+    "revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "shard": "data/train-001.parquet",
+    "split": "train"
+  },
+  "split_counts": {
+    "test": 868,
+    "train": 4044,
+    "validation": 868
+  },
+  "split_ratios": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "test_metrics": {
+    "accuracy": 0.9066820276497696,
+    "confusion_matrix": {
+      "fn": 37,
+      "fp": 44,
+      "tn": 434,
+      "tp": 353
+    },
+    "f1": 0.8970775095298602,
+    "false_positive_rate": 0.09205020920502092,
+    "precision": 0.889168765743073,
+    "prediction_count": 868,
+    "prediction_latency_seconds_per_row": 1.9319124434257036e-05,
+    "prediction_latency_seconds_total": 0.01676900000893511,
+    "recall": 0.9051282051282051,
+    "roc_auc": 0.964832099560133
+  },
+  "tie_breakers": [
+    "validation_roc_auc",
+    "validation_accuracy",
+    "candidate_order"
+  ],
+  "validation_metrics": {
+    "lightgbm": {
+      "accuracy": 0.9089861751152074,
+      "confusion_matrix": {
+        "fn": 46,
+        "fp": 33,
+        "tn": 445,
+        "tp": 344
+      },
+      "f1": 0.8970013037809648,
+      "false_positive_rate": 0.06903765690376569,
+      "precision": 0.9124668435013262,
+      "prediction_count": 868,
+      "prediction_latency_seconds_per_row": 1.9535368643990773e-05,
+      "prediction_latency_seconds_total": 0.01695669998298399,
+      "recall": 0.882051282051282,
+      "roc_auc": 0.9611817401566356
+    },
+    "logistic_regression": {
+      "accuracy": 0.8617511520737328,
+      "confusion_matrix": {
+        "fn": 67,
+        "fp": 53,
+        "tn": 425,
+        "tp": 323
+      },
+      "f1": 0.8433420365535248,
+      "false_positive_rate": 0.1108786610878661,
+      "precision": 0.8590425531914894,
+      "prediction_count": 868,
+      "prediction_latency_seconds_per_row": 4.052534572831634e-06,
+      "prediction_latency_seconds_total": 0.0035176000092178583,
+      "recall": 0.8282051282051283,
+      "roc_auc": 0.9104522046990666
+    },
+    "random_forest": {
+      "accuracy": 0.8917050691244239,
+      "confusion_matrix": {
+        "fn": 56,
+        "fp": 38,
+        "tn": 440,
+        "tp": 334
+      },
+      "f1": 0.8766404199475065,
+      "false_positive_rate": 0.0794979079497908,
+      "precision": 0.8978494623655914,
+      "prediction_count": 868,
+      "prediction_latency_seconds_per_row": 3.0262557587700075e-05,
+      "prediction_latency_seconds_total": 0.026267899986123666,
+      "recall": 0.8564102564102564,
+      "roc_auc": 0.9594222722883812
+    },
+    "xgboost": {
+      "accuracy": 0.9078341013824884,
+      "confusion_matrix": {
+        "fn": 44,
+        "fp": 36,
+        "tn": 442,
+        "tp": 346
+      },
+      "f1": 0.8963730569948186,
+      "false_positive_rate": 0.07531380753138076,
+      "precision": 0.9057591623036649,
+      "prediction_count": 868,
+      "prediction_latency_seconds_per_row": 5.0392857278495475e-06,
+      "prediction_latency_seconds_total": 0.0043741000117734075,
+      "recall": 0.8871794871794871,
+      "roc_auc": 0.9604361120051498
+    }
+  }
+}

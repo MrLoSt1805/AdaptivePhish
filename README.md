@@ -30,6 +30,6 @@ Acquire and version data → prepare temporal splits → engineer URL features �
 
 ## Current status
 
-**Phase 2 dataset work is complete for one approved PhreshPhish shard.** The project has a revision-pinned, column-only ingestion path, local validation and auditing, and DVC pointer tracking. See [docs/phase2_completion.md](docs/phase2_completion.md) for the verified scope and limitations.
+**Phase 2 dataset work is complete, and the Phase 3 URL-only ML pipeline is implemented.** Phase 3 provides deterministic lexical features, leakage-resistant random splits, four required candidate models, aggregate evaluation, trusted local artifacts, and safe CLIs. See [docs/phase2_completion.md](docs/phase2_completion.md) and [docs/phase3_ml_pipeline.md](docs/phase3_ml_pipeline.md).
 
-Feature engineering, temporal splitting, training, experiment tracking, drift detection, retraining, governance, serving, containers, CI/CD, and deployment are not implemented. Work continues one approved phase at a time.
+Real Phase 3 training results require the declared ML packages to be installed and the training command to run successfully. Temporal evaluation, MLflow tracking, drift detection, retraining, governance, serving, containers, CI/CD, and deployment are not implemented. Work continues one approved phase at a time.

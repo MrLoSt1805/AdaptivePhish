@@ -1,0 +1,5 @@
+outs:
+- md5: a17696baab1793c77cdb0c70c6ccfbbe
+  size: 648
+  hash: md5
+  path: train-000-url-metadata.manifest.json

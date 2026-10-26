@@ -51,6 +51,8 @@ mlartifacts/
 /reports/results/*
 !/reports/results/.gitkeep
 !/reports/results/*.dvc
+!/reports/results/phase3_metrics.json
+!/reports/results/phase3_model_comparison.csv
 
 # Keep future DVC metadata trackable; exclude only local cache/configuration
 /.dvc/cache/

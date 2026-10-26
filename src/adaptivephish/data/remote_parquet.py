@@ -74,13 +74,16 @@ class RangeFile(io.RawIOBase):
     After any transport/validation error the reader is permanently poisoned.
     """
 
-    def __init__(self, url=URL, size=SIZE, budget=BUDGET, transport=https_response):
+    def __init__(self, url=URL, size=SIZE, budget=BUDGET, transport=https_response,
+                 request_limit=32):
         super().__init__()
         safe_url(url)
-        if size < 12 or not 0 < budget <= BUDGET:
+        if (size < 12 or not 0 < budget <= BUDGET
+                or type(request_limit) is not int or not 1 <= request_limit <= 256):
             raise SafetyError('Invalid limits')
         self.url, self.size, self.budget = url, size, budget
         self.transport = transport
+        self.request_limit = request_limit
         self.body_bytes = self.request_count = self.pos = 0
         self.failed = False
         self.accounting_complete = True
@@ -146,7 +149,7 @@ class RangeFile(io.RawIOBase):
         try:
             for redirect in range(6):
                 safe_url(url)
-                if self.request_count >= 32:
+                if self.request_count >= self.request_limit:
                     raise SafetyError('Request count limit')
                 self.request_count += 1
                 with self.transport(url, {'Range': f'bytes={start}-{end-1}',

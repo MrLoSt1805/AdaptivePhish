@@ -3,3 +3,6 @@
 
 # Phase 2 data-versioning command-line tool.
 dvc==3.67.1
+
+# Phase 3 runtime packages are declared in pyproject.toml and installed by
+# the editable project requirement above.

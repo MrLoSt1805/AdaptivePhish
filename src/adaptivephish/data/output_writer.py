@@ -98,10 +98,10 @@ def _verify_parquet(path, expected_rows):
         raise OutputWriterError('output_verification_failed')
 
 
-def _manifest(config, summary, checksum):
+def _manifest(config, summary, checksum, source=None):
     return {
         'completion_status': 'complete',
-        'source': {
+        'source': source or {
             'dataset': config.dataset,
             'revision': config.revision,
             'split': config.split,
@@ -145,7 +145,8 @@ def verify_completed_output(output_path):
     return document
 
 
-def write_validated_parquet(batches, output_path, approved_shard=False):
+def write_validated_parquet(batches, output_path, approved_shard=False,
+                            source=None, expected_rows=None):
     """Validate all batches, then publish Parquet and its manifest.
 
     Parquet and JSON cannot be replaced as one filesystem transaction. After
@@ -165,7 +166,8 @@ def write_validated_parquet(batches, output_path, approved_shard=False):
         raise OutputWriterError('validation_failed') from None
     except Exception:
         raise OutputWriterError('validation_failed') from None
-    if approved_shard and summary.row_count != config.expected_rows:
+    required_rows = config.expected_rows if approved_shard else expected_rows
+    if required_rows is not None and summary.row_count != required_rows:
         raise OutputWriterError('approved_row_count_mismatch')
 
     parquet_temp = manifest_temp = None
@@ -185,7 +187,7 @@ def write_validated_parquet(batches, output_path, approved_shard=False):
 
         _verify_parquet(parquet_temp, summary.row_count)
         checksum = _checksum(parquet_temp)
-        document = _manifest(config, summary, checksum)
+        document = _manifest(config, summary, checksum, source=source)
 
         manifest_handle, manifest_temp = tempfile.mkstemp(
             prefix='.adaptivephish-', suffix='.json.tmp', dir=output.parent

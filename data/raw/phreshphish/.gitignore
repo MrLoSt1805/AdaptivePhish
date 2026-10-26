@@ -1,2 +1,4 @@
 /train-001-url-metadata.parquet
 /train-001-url-metadata.manifest.json
+/train-000-url-metadata.parquet
+/train-000-url-metadata.manifest.json

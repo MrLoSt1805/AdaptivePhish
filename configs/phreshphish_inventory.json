@@ -1,0 +1,791 @@
+{
+  "dataset": "phreshphish/phreshphish",
+  "expected_official_rows": 666315,
+  "expected_official_shards": 77,
+  "inventory_status": "metadata_complete",
+  "provenance": {
+    "dataset_revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "evidence": "Official revision metadata; footer-derived fields are preserved only where independently verified",
+    "generated_by_live_inventory": true
+  },
+  "schema_version": 1,
+  "selected_columns": [
+    "sha256",
+    "url",
+    "label",
+    "date"
+  ],
+  "shards": [
+    {
+      "application_body_budget": null,
+      "expected_file_size": 55340975,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-000.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 349640343,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-001.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 309443239,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-002.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 371223967,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-003.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 378348158,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-004.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 401642506,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-005.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 421478326,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-006.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 454488388,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-007.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 456990152,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-008.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 483918414,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-009.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 530323891,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-010.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 500273254,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-011.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 524605977,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-012.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 497270955,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-013.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 478593835,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-014.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 502425981,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-015.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 523758907,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-016.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 516672678,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-017.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 567766583,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-018.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 504129805,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-019.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 347423824,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/test-020.parquet",
+      "split": "test",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": 70613,
+      "approved_estimated_body_bytes": 70613,
+      "expected_file_size": 49639686,
+      "expected_row_groups": 1,
+      "expected_rows": 1000,
+      "maximum_http_requests": 32,
+      "path": "data/train-000.parquet",
+      "split": "train",
+      "verification_status": "footer_verified"
+    },
+    {
+      "application_body_budget": 2097152,
+      "expected_file_size": 322018201,
+      "expected_row_groups": 1,
+      "expected_rows": 5780,
+      "maximum_http_requests": 32,
+      "path": "data/train-001.parquet",
+      "split": "train",
+      "verification_status": "footer_verified"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 354725131,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-002.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 433568855,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-003.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 403296550,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-004.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 463326261,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-005.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 421664373,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-006.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 470883056,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-007.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 489853296,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-008.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 459330640,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-009.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 496786679,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-010.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 489298015,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-011.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 539858399,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-012.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 516513156,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-013.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 528280696,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-014.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 491305707,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-015.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 481450112,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-016.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 553260365,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-017.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 512599049,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-018.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 531769758,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-019.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 516696945,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-020.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 542055394,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-021.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 519913293,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-022.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 512579781,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-023.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 490380787,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-024.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 522028796,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-025.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 507351379,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-026.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 518847095,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-027.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 519883269,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-028.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 521537139,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-029.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 517131354,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-030.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 546849720,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-031.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 516975992,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-032.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 518462738,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-033.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 523909100,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-034.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 539652745,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-035.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 526415880,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-036.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 528799237,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-037.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 540585532,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-038.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 519866563,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-039.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 516416700,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-040.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 521429018,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-041.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 556020581,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-042.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 517091171,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-043.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 512627533,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-044.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 512117091,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-045.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 513316966,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-046.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 563189367,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-047.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 526941482,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-048.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 493483710,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-049.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 518835096,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-050.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 526031430,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-051.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 510965576,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-052.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 584768973,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-053.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 547814803,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-054.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    },
+    {
+      "application_body_budget": null,
+      "expected_file_size": 20213199,
+      "expected_row_groups": null,
+      "expected_rows": null,
+      "maximum_http_requests": 32,
+      "path": "data/train-055.parquet",
+      "split": "train",
+      "verification_status": "metadata_discovered"
+    }
+  ]
+}
