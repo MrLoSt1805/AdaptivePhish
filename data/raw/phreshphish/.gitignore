@@ -1,4 +1,2 @@
-*
-!.gitignore
-!train-001-url-metadata.parquet.dvc
-!train-001-url-metadata.manifest.json.dvc
+/train-001-url-metadata.parquet
+/train-001-url-metadata.manifest.json
