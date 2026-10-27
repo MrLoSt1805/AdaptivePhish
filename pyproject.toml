@@ -9,15 +9,28 @@ description = "Academic phishing URL detection research with temporal drift dete
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
 dependencies = [
-    "pyarrow==26.0.0",
+    "pyarrow>=25,<26",
     "numpy>=1.26,<3",
     "scikit-learn>=1.4,<2",
     "joblib>=1.3,<2",
     "xgboost>=2.0,<4",
     "lightgbm>=4.3,<5",
+    "mlflow>=3.0,<4",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.32,<1",
+    "prometheus-client>=0.21,<1",
+    "httpx>=0.27,<1",
+    "matplotlib>=3.9,<4",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["adaptivephish*"]
 namespaces = false
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# Historical command module intentionally re-exports the range-reader API.
+"scripts/test_remote_parquet.py" = ["F401"]

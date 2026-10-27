@@ -1,0 +1,5 @@
+outs:
+- md5: bf3961a1edf977185b8ac3c55f419ebe
+  size: 733719
+  hash: md5
+  path: train-002-url-metadata.parquet

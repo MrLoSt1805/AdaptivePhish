@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from adaptivephish.data import ingestion, output_writer
+from adaptivephish.data import output_writer
 from adaptivephish.data.source_config import load_source_config
 
 

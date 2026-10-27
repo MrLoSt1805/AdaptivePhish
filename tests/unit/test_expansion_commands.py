@@ -24,6 +24,7 @@ def load(name):
 discovery = load('discover_phreshphish_inventory')
 preflight = load('preflight_dataset_shard')
 ingestion = load('ingest_dataset_shard')
+batch = load('batch_dataset_shards')
 
 
 class ExpansionCommandTests(unittest.TestCase):
@@ -55,3 +56,26 @@ class ExpansionCommandTests(unittest.TestCase):
             self.assertEqual(code, 2)
             make_reader.assert_not_called()
             self.assertNotIn('https://', output.getvalue())
+
+    def test_batch_preflight_and_ingestion_require_live(self):
+        commands = (
+            ['preflight', '--split', 'train', '--max-shards', '1',
+             '--per-shard-byte-limit', '1000000',
+             '--session-byte-limit', '1000000',
+             '--session-request-limit', '10', '--runtime-seconds', '60'],
+            ['ingest', '--approval-id', '0' * 64,
+             '--session-byte-limit', '1000000',
+             '--session-request-limit', '10', '--runtime-seconds', '60'],
+        )
+        for arguments in commands:
+            output = io.StringIO()
+            with self.subTest(command=arguments[0]), patch.object(
+                    batch, 'preflight_batch') as preflight, patch.object(
+                    batch, 'ingest_approved_batch') as ingest, \
+                    contextlib.redirect_stdout(output):
+                code = batch.main(arguments)
+            self.assertEqual(code, 2)
+            preflight.assert_not_called()
+            ingest.assert_not_called()
+            self.assertEqual(json.loads(output.getvalue())['failure_category'],
+                             'live_flag_required')

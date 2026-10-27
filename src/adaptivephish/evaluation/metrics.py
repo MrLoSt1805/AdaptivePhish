@@ -25,7 +25,7 @@ def evaluate_classifier(model, features, labels):
             'recall': float(recall_score(labels, predictions, zero_division=0)),
             'f1': float(f1_score(labels, predictions, zero_division=0)),
             'roc_auc': None if auc is None else float(auc),
-            'false_positive_rate': float(fp / (fp + tn)) if fp + tn else 0.0,
+            'false_positive_rate': float(fp / (fp + tn)) if fp + tn else None,
             'confusion_matrix': {'tn': int(tn), 'fp': int(fp),
                                  'fn': int(fn), 'tp': int(tp)},
             'prediction_latency_seconds_total': float(elapsed),

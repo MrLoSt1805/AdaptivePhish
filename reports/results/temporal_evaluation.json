@@ -1,0 +1,89 @@
+{
+  "candidate_metrics": {
+    "accuracy": 0.8569078947368421,
+    "confusion_matrix": {
+      "fn": 442,
+      "fp": 341,
+      "tn": 3712,
+      "tp": 977
+    },
+    "f1": 0.7139203507489953,
+    "false_positive_rate": 0.0841352084875401,
+    "precision": 0.7412746585735963,
+    "prediction_count": 5472,
+    "prediction_latency_seconds_per_row": 1.8157730263181437e-05,
+    "prediction_latency_seconds_total": 0.09935910000012882,
+    "recall": 0.6885130373502466,
+    "roc_auc": 0.8527607335295009
+  },
+  "champion_metrics": {
+    "accuracy": 0.8832236842105263,
+    "confusion_matrix": {
+      "fn": 298,
+      "fp": 341,
+      "tn": 3712,
+      "tp": 1121
+    },
+    "f1": 0.7782020131898646,
+    "false_positive_rate": 0.0841352084875401,
+    "precision": 0.7667578659370725,
+    "prediction_count": 5472,
+    "prediction_latency_seconds_per_row": 1.795721856727431e-05,
+    "prediction_latency_seconds_total": 0.09826190000012502,
+    "recall": 0.7899929527836504,
+    "roc_auc": 0.9420089556853023
+  },
+  "cutoff_date": "2025-06-25",
+  "drift": {
+    "current_rows": 5472,
+    "feature_psi": {
+      "ampersand_count": 0.0,
+      "at_sign_flag": 0.0,
+      "digit_count": 0.005532152144316455,
+      "digit_ratio": 0.006723252301075773,
+      "dot_count": 0.01432241994154931,
+      "equals_count": 0.0,
+      "explicit_port_flag": 0.0,
+      "fragment_length": 0.0,
+      "hostname_length": 0.138311918228618,
+      "hostname_ratio": 0.3073587283959425,
+      "https_flag": 0.0,
+      "hyphen_count": 0.05865847517837932,
+      "ip_literal_flag": 0.0,
+      "path_length": 0.19210549108383118,
+      "path_ratio": 0.20421413468758995,
+      "percent_encoding_count": 0.0,
+      "punycode_flag": 0.0,
+      "query_length": 0.0,
+      "query_parameter_count": 0.0,
+      "question_mark_count": 0.0,
+      "slash_count": 0.1327647878303868,
+      "special_character_count": 0.007110630538934947,
+      "subdomain_count": 0.009893871384106856,
+      "suspicious_keyword_count": 0.0,
+      "underscore_count": 0.0,
+      "url_length": 0.10959027401608151
+    },
+    "maximum_psi": 0.3073587283959425,
+    "method": "psi",
+    "reference_rows": 14941,
+    "status": "critical"
+  },
+  "limitations": [
+    "not the complete 77-shard dataset",
+    "collection date is day-level and not label-availability time",
+    "candidate is evaluated but not automatically promoted"
+  ],
+  "mlflow_run_id": "8cee067d68f346b68031d735fbd63a0d",
+  "report_version": "temporal-v1",
+  "row_count": 20413,
+  "scope": "verified_local_train_shards_only",
+  "source_shards": [
+    "data/train-000.parquet",
+    "data/train-001.parquet",
+    "data/train-002.parquet",
+    "data/train-003.parquet"
+  ],
+  "test_rows": 5472,
+  "train_rows": 14941
+}

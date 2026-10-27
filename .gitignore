@@ -26,12 +26,13 @@ htmlcov/
 
 # Logs, packaging outputs, and experiment outputs
 *.log
+mlruns/
+mlartifacts/
+*.db
 logs/
 build/
 dist/
 *.egg-info/
-mlruns/
-mlartifacts/
 
 # Datasets: retain directory placeholders and future DVC pointer files
 /data/interim/*
@@ -48,11 +49,18 @@ mlartifacts/
 /reports/figures/*
 !/reports/figures/.gitkeep
 !/reports/figures/*.dvc
+!/reports/figures/temporal_f1_comparison.png
 /reports/results/*
 !/reports/results/.gitkeep
 !/reports/results/*.dvc
 !/reports/results/phase3_metrics.json
 !/reports/results/phase3_model_comparison.csv
+!/reports/results/temporal_evaluation.json
+!/reports/results/promotion_decision.json
+!/reports/results/*_v2.json
+!/reports/results/audit_validation.json
+!/reports/results/dataset_quality.json
+!/reports/figures/*_v2.png
 
 # Keep future DVC metadata trackable; exclude only local cache/configuration
 /.dvc/cache/

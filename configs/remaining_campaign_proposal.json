@@ -1,0 +1,666 @@
+{
+  "approved": false,
+  "columns": [
+    "sha256",
+    "url",
+    "label",
+    "date"
+  ],
+  "dataset": "phreshphish/phreshphish",
+  "network_accessed": false,
+  "note": "Projected byte/request estimates require a separately budgeted metadata-only preflight. No budgets or approval are inferred.",
+  "proposal_digest": "1264e83f53b9d9273a9defc558fb7ed17e429ed9106295875333831a21e0172c",
+  "remaining_shards": 72,
+  "revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+  "shards": [
+    {
+      "key": "test-000",
+      "maximum_http_requests": 32,
+      "path": "data/test-000.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 55340975,
+      "split": "test"
+    },
+    {
+      "key": "test-001",
+      "maximum_http_requests": 32,
+      "path": "data/test-001.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 349640343,
+      "split": "test"
+    },
+    {
+      "key": "test-002",
+      "maximum_http_requests": 32,
+      "path": "data/test-002.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 309443239,
+      "split": "test"
+    },
+    {
+      "key": "test-003",
+      "maximum_http_requests": 32,
+      "path": "data/test-003.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 371223967,
+      "split": "test"
+    },
+    {
+      "key": "test-004",
+      "maximum_http_requests": 32,
+      "path": "data/test-004.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 378348158,
+      "split": "test"
+    },
+    {
+      "key": "test-005",
+      "maximum_http_requests": 32,
+      "path": "data/test-005.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 401642506,
+      "split": "test"
+    },
+    {
+      "key": "test-006",
+      "maximum_http_requests": 32,
+      "path": "data/test-006.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 421478326,
+      "split": "test"
+    },
+    {
+      "key": "test-007",
+      "maximum_http_requests": 32,
+      "path": "data/test-007.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 454488388,
+      "split": "test"
+    },
+    {
+      "key": "test-008",
+      "maximum_http_requests": 32,
+      "path": "data/test-008.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 456990152,
+      "split": "test"
+    },
+    {
+      "key": "test-009",
+      "maximum_http_requests": 32,
+      "path": "data/test-009.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 483918414,
+      "split": "test"
+    },
+    {
+      "key": "test-010",
+      "maximum_http_requests": 32,
+      "path": "data/test-010.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 530323891,
+      "split": "test"
+    },
+    {
+      "key": "test-011",
+      "maximum_http_requests": 32,
+      "path": "data/test-011.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 500273254,
+      "split": "test"
+    },
+    {
+      "key": "test-012",
+      "maximum_http_requests": 32,
+      "path": "data/test-012.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 524605977,
+      "split": "test"
+    },
+    {
+      "key": "test-013",
+      "maximum_http_requests": 32,
+      "path": "data/test-013.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 497270955,
+      "split": "test"
+    },
+    {
+      "key": "test-014",
+      "maximum_http_requests": 32,
+      "path": "data/test-014.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 478593835,
+      "split": "test"
+    },
+    {
+      "key": "test-015",
+      "maximum_http_requests": 32,
+      "path": "data/test-015.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 502425981,
+      "split": "test"
+    },
+    {
+      "key": "test-016",
+      "maximum_http_requests": 32,
+      "path": "data/test-016.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 523758907,
+      "split": "test"
+    },
+    {
+      "key": "test-017",
+      "maximum_http_requests": 32,
+      "path": "data/test-017.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 516672678,
+      "split": "test"
+    },
+    {
+      "key": "test-018",
+      "maximum_http_requests": 32,
+      "path": "data/test-018.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 567766583,
+      "split": "test"
+    },
+    {
+      "key": "test-019",
+      "maximum_http_requests": 32,
+      "path": "data/test-019.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 504129805,
+      "split": "test"
+    },
+    {
+      "key": "test-020",
+      "maximum_http_requests": 32,
+      "path": "data/test-020.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 347423824,
+      "split": "test"
+    },
+    {
+      "key": "train-005",
+      "maximum_http_requests": 32,
+      "path": "data/train-005.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 463326261,
+      "split": "train"
+    },
+    {
+      "key": "train-006",
+      "maximum_http_requests": 32,
+      "path": "data/train-006.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 421664373,
+      "split": "train"
+    },
+    {
+      "key": "train-007",
+      "maximum_http_requests": 32,
+      "path": "data/train-007.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 470883056,
+      "split": "train"
+    },
+    {
+      "key": "train-008",
+      "maximum_http_requests": 32,
+      "path": "data/train-008.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 489853296,
+      "split": "train"
+    },
+    {
+      "key": "train-009",
+      "maximum_http_requests": 32,
+      "path": "data/train-009.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 459330640,
+      "split": "train"
+    },
+    {
+      "key": "train-010",
+      "maximum_http_requests": 32,
+      "path": "data/train-010.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 496786679,
+      "split": "train"
+    },
+    {
+      "key": "train-011",
+      "maximum_http_requests": 32,
+      "path": "data/train-011.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 489298015,
+      "split": "train"
+    },
+    {
+      "key": "train-012",
+      "maximum_http_requests": 32,
+      "path": "data/train-012.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 539858399,
+      "split": "train"
+    },
+    {
+      "key": "train-013",
+      "maximum_http_requests": 32,
+      "path": "data/train-013.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 516513156,
+      "split": "train"
+    },
+    {
+      "key": "train-014",
+      "maximum_http_requests": 32,
+      "path": "data/train-014.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 528280696,
+      "split": "train"
+    },
+    {
+      "key": "train-015",
+      "maximum_http_requests": 32,
+      "path": "data/train-015.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 491305707,
+      "split": "train"
+    },
+    {
+      "key": "train-016",
+      "maximum_http_requests": 32,
+      "path": "data/train-016.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 481450112,
+      "split": "train"
+    },
+    {
+      "key": "train-017",
+      "maximum_http_requests": 32,
+      "path": "data/train-017.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 553260365,
+      "split": "train"
+    },
+    {
+      "key": "train-018",
+      "maximum_http_requests": 32,
+      "path": "data/train-018.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 512599049,
+      "split": "train"
+    },
+    {
+      "key": "train-019",
+      "maximum_http_requests": 32,
+      "path": "data/train-019.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 531769758,
+      "split": "train"
+    },
+    {
+      "key": "train-020",
+      "maximum_http_requests": 32,
+      "path": "data/train-020.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 516696945,
+      "split": "train"
+    },
+    {
+      "key": "train-021",
+      "maximum_http_requests": 32,
+      "path": "data/train-021.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 542055394,
+      "split": "train"
+    },
+    {
+      "key": "train-022",
+      "maximum_http_requests": 32,
+      "path": "data/train-022.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 519913293,
+      "split": "train"
+    },
+    {
+      "key": "train-023",
+      "maximum_http_requests": 32,
+      "path": "data/train-023.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 512579781,
+      "split": "train"
+    },
+    {
+      "key": "train-024",
+      "maximum_http_requests": 32,
+      "path": "data/train-024.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 490380787,
+      "split": "train"
+    },
+    {
+      "key": "train-025",
+      "maximum_http_requests": 32,
+      "path": "data/train-025.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 522028796,
+      "split": "train"
+    },
+    {
+      "key": "train-026",
+      "maximum_http_requests": 32,
+      "path": "data/train-026.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 507351379,
+      "split": "train"
+    },
+    {
+      "key": "train-027",
+      "maximum_http_requests": 32,
+      "path": "data/train-027.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 518847095,
+      "split": "train"
+    },
+    {
+      "key": "train-028",
+      "maximum_http_requests": 32,
+      "path": "data/train-028.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 519883269,
+      "split": "train"
+    },
+    {
+      "key": "train-029",
+      "maximum_http_requests": 32,
+      "path": "data/train-029.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 521537139,
+      "split": "train"
+    },
+    {
+      "key": "train-030",
+      "maximum_http_requests": 32,
+      "path": "data/train-030.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 517131354,
+      "split": "train"
+    },
+    {
+      "key": "train-031",
+      "maximum_http_requests": 32,
+      "path": "data/train-031.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 546849720,
+      "split": "train"
+    },
+    {
+      "key": "train-032",
+      "maximum_http_requests": 32,
+      "path": "data/train-032.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 516975992,
+      "split": "train"
+    },
+    {
+      "key": "train-033",
+      "maximum_http_requests": 32,
+      "path": "data/train-033.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 518462738,
+      "split": "train"
+    },
+    {
+      "key": "train-034",
+      "maximum_http_requests": 32,
+      "path": "data/train-034.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 523909100,
+      "split": "train"
+    },
+    {
+      "key": "train-035",
+      "maximum_http_requests": 32,
+      "path": "data/train-035.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 539652745,
+      "split": "train"
+    },
+    {
+      "key": "train-036",
+      "maximum_http_requests": 32,
+      "path": "data/train-036.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 526415880,
+      "split": "train"
+    },
+    {
+      "key": "train-037",
+      "maximum_http_requests": 32,
+      "path": "data/train-037.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 528799237,
+      "split": "train"
+    },
+    {
+      "key": "train-038",
+      "maximum_http_requests": 32,
+      "path": "data/train-038.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 540585532,
+      "split": "train"
+    },
+    {
+      "key": "train-039",
+      "maximum_http_requests": 32,
+      "path": "data/train-039.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 519866563,
+      "split": "train"
+    },
+    {
+      "key": "train-040",
+      "maximum_http_requests": 32,
+      "path": "data/train-040.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 516416700,
+      "split": "train"
+    },
+    {
+      "key": "train-041",
+      "maximum_http_requests": 32,
+      "path": "data/train-041.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 521429018,
+      "split": "train"
+    },
+    {
+      "key": "train-042",
+      "maximum_http_requests": 32,
+      "path": "data/train-042.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 556020581,
+      "split": "train"
+    },
+    {
+      "key": "train-043",
+      "maximum_http_requests": 32,
+      "path": "data/train-043.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 517091171,
+      "split": "train"
+    },
+    {
+      "key": "train-044",
+      "maximum_http_requests": 32,
+      "path": "data/train-044.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 512627533,
+      "split": "train"
+    },
+    {
+      "key": "train-045",
+      "maximum_http_requests": 32,
+      "path": "data/train-045.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 512117091,
+      "split": "train"
+    },
+    {
+      "key": "train-046",
+      "maximum_http_requests": 32,
+      "path": "data/train-046.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 513316966,
+      "split": "train"
+    },
+    {
+      "key": "train-047",
+      "maximum_http_requests": 32,
+      "path": "data/train-047.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 563189367,
+      "split": "train"
+    },
+    {
+      "key": "train-048",
+      "maximum_http_requests": 32,
+      "path": "data/train-048.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 526941482,
+      "split": "train"
+    },
+    {
+      "key": "train-049",
+      "maximum_http_requests": 32,
+      "path": "data/train-049.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 493483710,
+      "split": "train"
+    },
+    {
+      "key": "train-050",
+      "maximum_http_requests": 32,
+      "path": "data/train-050.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 518835096,
+      "split": "train"
+    },
+    {
+      "key": "train-051",
+      "maximum_http_requests": 32,
+      "path": "data/train-051.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 526031430,
+      "split": "train"
+    },
+    {
+      "key": "train-052",
+      "maximum_http_requests": 32,
+      "path": "data/train-052.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 510965576,
+      "split": "train"
+    },
+    {
+      "key": "train-053",
+      "maximum_http_requests": 32,
+      "path": "data/train-053.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 584768973,
+      "split": "train"
+    },
+    {
+      "key": "train-054",
+      "maximum_http_requests": 32,
+      "path": "data/train-054.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 547814803,
+      "split": "train"
+    },
+    {
+      "key": "train-055",
+      "maximum_http_requests": 32,
+      "path": "data/train-055.parquet",
+      "projected_bytes": null,
+      "projected_requests": null,
+      "publisher_file_bytes": 20213199,
+      "split": "train"
+    }
+  ],
+  "status": "awaiting_metadata_preflight_authorization"
+}

@@ -3,7 +3,6 @@
 import contextlib
 import datetime
 import io
-import json
 from pathlib import Path
 import socket
 import struct

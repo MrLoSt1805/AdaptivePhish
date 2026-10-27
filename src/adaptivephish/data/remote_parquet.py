@@ -17,6 +17,7 @@ import http.client
 import io
 import json
 import struct
+import time
 from urllib.parse import urljoin, urlsplit
 
 import pyarrow as pa
@@ -92,6 +93,8 @@ class RangeFile(io.RawIOBase):
         self.cache = []
         self.ranges = []  # Numeric intervals only; never data or signed URLs.
         self.plan = None
+        self.deadline = None
+        self.clock = time.monotonic
 
     @property
     def remaining(self):
@@ -149,6 +152,8 @@ class RangeFile(io.RawIOBase):
         try:
             for redirect in range(6):
                 safe_url(url)
+                if self.deadline is not None and self.clock() >= self.deadline:
+                    raise SafetyError('Runtime limit exceeded')
                 if self.request_count >= self.request_limit:
                     raise SafetyError('Request count limit')
                 self.request_count += 1

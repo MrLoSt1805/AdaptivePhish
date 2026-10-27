@@ -3,7 +3,6 @@
 import contextlib
 import datetime
 import io
-import json
 import socket
 from pathlib import Path
 import tempfile

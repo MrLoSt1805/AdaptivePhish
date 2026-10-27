@@ -1,0 +1,70 @@
+{
+  "lightgbm": {
+    "accuracy": 0.8716356107660456,
+    "confusion_matrix": {
+      "fn": 51,
+      "fp": 11,
+      "tn": 180,
+      "tp": 241
+    },
+    "f1": 0.8860294117647058,
+    "false_positive_rate": 0.05759162303664921,
+    "precision": 0.9563492063492064,
+    "prediction_count": 483,
+    "prediction_latency_seconds_per_row": 1.9989026913816575e-05,
+    "prediction_latency_seconds_total": 0.009654699999373406,
+    "recall": 0.8253424657534246,
+    "roc_auc": 0.9607240192211145
+  },
+  "logistic_regression": {
+    "accuracy": 0.8509316770186336,
+    "confusion_matrix": {
+      "fn": 49,
+      "fp": 23,
+      "tn": 168,
+      "tp": 243
+    },
+    "f1": 0.8709677419354839,
+    "false_positive_rate": 0.12041884816753927,
+    "precision": 0.9135338345864662,
+    "prediction_count": 483,
+    "prediction_latency_seconds_per_row": 4.933540372995758e-06,
+    "prediction_latency_seconds_total": 0.002382900000156951,
+    "recall": 0.8321917808219178,
+    "roc_auc": 0.9102685935594922
+  },
+  "random_forest": {
+    "accuracy": 0.8509316770186336,
+    "confusion_matrix": {
+      "fn": 61,
+      "fp": 11,
+      "tn": 180,
+      "tp": 231
+    },
+    "f1": 0.8651685393258427,
+    "false_positive_rate": 0.05759162303664921,
+    "precision": 0.9545454545454546,
+    "prediction_count": 483,
+    "prediction_latency_seconds_per_row": 5.123540372654926e-05,
+    "prediction_latency_seconds_total": 0.024746699999923294,
+    "recall": 0.791095890410959,
+    "roc_auc": 0.9632342394032848
+  },
+  "xgboost": {
+    "accuracy": 0.855072463768116,
+    "confusion_matrix": {
+      "fn": 53,
+      "fp": 17,
+      "tn": 174,
+      "tp": 239
+    },
+    "f1": 0.8722627737226277,
+    "false_positive_rate": 0.08900523560209424,
+    "precision": 0.93359375,
+    "prediction_count": 483,
+    "prediction_latency_seconds_per_row": 6.119875777257904e-06,
+    "prediction_latency_seconds_total": 0.0029559000004155678,
+    "recall": 0.8184931506849316,
+    "roc_auc": 0.9578462310836979
+  }
+}

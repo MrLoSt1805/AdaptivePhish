@@ -1,0 +1,1 @@
+"""Local model registry helpers."""

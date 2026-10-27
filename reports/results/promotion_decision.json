@@ -1,0 +1,12 @@
+{
+  "approved": false,
+  "auc_regressed": true,
+  "automatic_promotion_performed": false,
+  "candidate": "temporal-lightgbm-v1",
+  "champion_version": "phase3-v1",
+  "f1_gain": -0.0642816624408693,
+  "failure_category": null,
+  "false_positive_rate_increase": 0.0,
+  "reason": "promotion_rejected",
+  "success": true
+}

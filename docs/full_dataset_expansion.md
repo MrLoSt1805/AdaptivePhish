@@ -1,10 +1,10 @@
 # AdaptivePhish Controlled Dataset Expansion
 
-This foundation prepares progressive, revision-pinned ingestion beyond the verified 5,780-row shard. It has not downloaded or ingested any additional data. The complete official inventory and the claimed 666,315-row dataset remain unverified locally.
+This workflow supports progressive, revision-pinned ingestion. The verified local outputs currently cover `train-000` through `train-003`, containing 20,413 rows. `train-004` is footer-verified and approved but is not yet ingested. The claimed 666,315-row complete dataset remains unverified locally.
 
 ## Current inventory status
 
-`configs/phreshphish_inventory.json` is deliberately marked `partial_verified`. It contains only `data/train-001.parquet`, whose file size, row count, row-group count, schema, and local output were independently verified in Phase 2. The document records the publisher totals of 77 shards and 666,315 rows as expected totals, not locally completed results.
+`configs/phreshphish_inventory.json` is marked `metadata_complete`: all 77 pinned paths and advertised file sizes are known. `train-000` through `train-004` are `footer_verified`; 72 shards still have repository metadata only. The document records 666,315 as an expected publisher total, not a locally completed result.
 
 Unknown shard names, sizes, row counts, budgets, and row-group counts are never guessed. An inventory can be marked `complete_verified` only when it contains exactly 77 unique revision-pinned paths, every row count is known, and their sum is 666,315.
 
@@ -101,3 +101,98 @@ The official repository stores approximately 36.6 GB of Parquet, largely because
 Local URL-metadata Parquet size, DVC cache duplication or linking behavior, temporary publication space, cumulative transfer, validation memory, and runtime must be measured progressively. Maintain free space for the temporary output and final output simultaneously during publication.
 
 No live discovery, metadata preflight, new ingestion, `dvc add`, DVC remote configuration, model retraining, commit, push, or upload was performed while implementing this foundation.
+
+## Resumable bounded batch workflow
+
+`scripts/batch_dataset_shards.py` wraps the existing single-shard reader,
+preflight, ingestion writer, and aggregate verifier. It does not implement a
+second download path. A batch has four separate steps:
+
+1. **Dry-run selection** chooses exact keys, a publisher split, and a maximum
+   shard count without network access.
+2. **Metadata preflight** reads only headers, trailers, and footers. It writes
+   `configs/phreshphish_batch_plan.json` with status `pending_review`.
+3. **Offline approval** validates the plan against the pinned inventory,
+   records exact row counts, row groups, estimates and budgets, adds exact
+   output ignore rules, and seals the plan with a SHA-256 approval ID.
+4. **Bounded ingestion** requires that approval ID. Each footer is checked
+   again and must produce the same dimensions and byte estimate. Existing
+   verified outputs are skipped. Aggregate verification runs after every new
+   atomic publication.
+
+Only one active plan file is allowed. After a batch is complete and reviewed,
+archive or commit its approved plan before removing it to prepare the next
+batch. Re-running ingestion with the same approved plan is the supported
+resume operation: completed outputs are checksum-verified and skipped.
+
+The ignore file, inventory, and approval plan are separate files and cannot be
+replaced in one filesystem transaction. Approval publishes the plan last, so
+partial approval cannot authorize ingestion. Extra exact ignore rules may
+remain after an interrupted approval; they do not expose data or authorize a
+source.
+
+The wall-clock limit is checked between shards and after each shard. An active
+HTTPS request uses the reader's existing 30-second timeout, so the batch timer
+cannot interrupt a system call at an exact instant. Application-body counters
+still are not hard total-network caps.
+
+`planned_requests` in a plan counts logical byte ranges: three metadata ranges
+plus one range for each selected column chunk. Actual HTTP request counts also
+include redirect hops. There are no automatic retries. Each approved shard
+therefore reserves its inventory `maximum_http_requests` value (currently 32),
+and the batch session request limit must cover the sum of those reservations.
+Unused reservations from checksum-verified skipped shards do not consume the
+resumed session. Future plans also record `approved_http_request_budget` per
+shard explicitly.
+
+### Safe commands
+
+Preview the next three unverified train shards without network access:
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\batch_dataset_shards.py dry-run --split train --max-shards 3
+```
+
+Preflight those three shards with explicit independent limits:
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\batch_dataset_shards.py preflight --live --split train --max-shards 3 --per-shard-byte-limit 50000000 --session-byte-limit 150000000 --session-request-limit 96 --runtime-seconds 300
+```
+
+Review the pending JSON before approval. Approval performs no network access:
+
+```powershell
+Get-Content configs\phreshphish_batch_plan.json
+.\.venv\Scripts\python.exe -B scripts\batch_dataset_shards.py approve
+```
+
+Copy the printed approval ID into the bounded ingestion command. Choose session
+limits no larger than the reviewed plan totals:
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\batch_dataset_shards.py ingest --live --approval-id <APPROVAL_ID> --session-byte-limit <REVIEWED_BYTES> --session-request-limit <REVIEWED_REQUESTS> --runtime-seconds <REVIEWED_RUNTIME_SECONDS>
+```
+
+Verify current local outputs without network access:
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\batch_dataset_shards.py verify
+```
+
+Resume an interrupted batch by repeating the same ingestion command with the
+same approved plan and approval ID. Never edit an approved plan: its digest
+will fail.
+
+After reviewing each new Parquet and manifest, DVC tracking remains explicit:
+
+```powershell
+.\.venv\Scripts\dvc.exe add data/raw/phreshphish/<SHARD>-url-metadata.parquet
+.\.venv\Scripts\dvc.exe add data/raw/phreshphish/<SHARD>-url-metadata.manifest.json
+git check-ignore -v --no-index data/raw/phreshphish/<SHARD>-url-metadata.parquet
+git status --short
+.\.venv\Scripts\dvc.exe status
+```
+
+Review the generated `.dvc` pointers and nested `.gitignore` changes before
+staging them. The workflow never runs `dvc add`, Git commands, training, or
+model publication automatically.

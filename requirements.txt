@@ -3,6 +3,10 @@
 
 # Phase 2 data-versioning command-line tool.
 dvc==3.67.1
+ruff==0.17.3
 
 # Phase 3 runtime packages are declared in pyproject.toml and installed by
 # the editable project requirement above.
+
+# Phase 4+ experiment tracking, API, monitoring, and report plotting packages
+# are also declared in pyproject.toml so editable and deployment installs agree.

@@ -12,7 +12,6 @@ import pyarrow.parquet as pq
 
 from adaptivephish.data.source_config import load_source_config
 from adaptivephish.data.validation import (
-    COLUMNS,
     ValidationError,
     normalize_batches,
     validate_batches,

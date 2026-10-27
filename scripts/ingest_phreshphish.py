@@ -1,7 +1,6 @@
 """Explicit command-line gate for the single approved PhreshPhish shard."""
 
 import json
-from pathlib import Path
 import sys
 
 from adaptivephish.data import ingestion, output_writer

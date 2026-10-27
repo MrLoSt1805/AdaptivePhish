@@ -1,0 +1,42 @@
+stages:
+  verify:
+    cmd: python -B scripts/local_pipeline.py verify
+    deps:
+      - data/raw/phreshphish
+      - configs/phreshphish_inventory.json
+      - scripts/verify_expanded_dataset.py
+      - src/adaptivephish/data
+    metrics:
+      - reports/results/dataset_quality.json:
+          cache: false
+  prepare:
+    cmd: python -B scripts/local_pipeline.py prepare
+    deps:
+      - reports/results/dataset_quality.json
+      - data/raw/phreshphish
+      - scripts/local_pipeline.py
+      - src/adaptivephish/pipelines
+      - src/adaptivephish/features
+    outs:
+      - data/processed/features.joblib
+  train:
+    cmd: python -B scripts/local_pipeline.py train
+    deps:
+      - data/processed/features.joblib
+      - scripts/local_pipeline.py
+      - src/adaptivephish/models/training.py
+    outs:
+      - artifacts/pipeline_model.joblib
+    metrics:
+      - reports/results/pipeline_validation_v2.json:
+          cache: false
+  evaluate:
+    cmd: python -B scripts/local_pipeline.py evaluate
+    deps:
+      - artifacts/pipeline_model.joblib
+      - data/processed/features.joblib
+      - scripts/local_pipeline.py
+      - src/adaptivephish/evaluation/metrics.py
+    metrics:
+      - reports/results/pipeline_test_v2.json:
+          cache: false

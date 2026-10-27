@@ -248,34 +248,37 @@
       "verification_status": "footer_verified"
     },
     {
-      "application_body_budget": null,
+      "application_body_budget": 442520,
+      "approved_estimated_body_bytes": 442520,
       "expected_file_size": 354725131,
-      "expected_row_groups": null,
-      "expected_rows": null,
+      "expected_row_groups": 1,
+      "expected_rows": 6506,
       "maximum_http_requests": 32,
       "path": "data/train-002.parquet",
       "split": "train",
-      "verification_status": "metadata_discovered"
+      "verification_status": "footer_verified"
     },
     {
-      "application_body_budget": null,
+      "application_body_budget": 491491,
+      "approved_estimated_body_bytes": 491491,
       "expected_file_size": 433568855,
-      "expected_row_groups": null,
-      "expected_rows": null,
+      "expected_row_groups": 1,
+      "expected_rows": 7127,
       "maximum_http_requests": 32,
       "path": "data/train-003.parquet",
       "split": "train",
-      "verification_status": "metadata_discovered"
+      "verification_status": "footer_verified"
     },
     {
-      "application_body_budget": null,
+      "application_body_budget": 502931,
+      "approved_estimated_body_bytes": 502931,
       "expected_file_size": 403296550,
-      "expected_row_groups": null,
-      "expected_rows": null,
+      "expected_row_groups": 1,
+      "expected_rows": 7425,
       "maximum_http_requests": 32,
       "path": "data/train-004.parquet",
       "split": "train",
-      "verification_status": "metadata_discovered"
+      "verification_status": "footer_verified"
     },
     {
       "application_body_budget": null,

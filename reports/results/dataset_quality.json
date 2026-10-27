@@ -1,0 +1,24 @@
+{
+  "duplicate_counts": {
+    "conflicting_sha256": 0,
+    "row": 0,
+    "sha256": 0,
+    "url": 0
+  },
+  "expected_official_shards": 77,
+  "failure_category": null,
+  "inventory_status": "metadata_complete",
+  "policy": "report duplicates; reject conflicting identifiers before training",
+  "row_counts": {
+    "test": {
+      "benign": 0,
+      "phish": 0
+    },
+    "train": {
+      "benign": 15390,
+      "phish": 12448
+    }
+  },
+  "success": true,
+  "verified_shard_count": 5
+}

@@ -2,34 +2,33 @@
 
 **An MLOps-Based Phishing URL Detection System with Temporal Drift Detection and Automated Retraining**
 
-AdaptivePhish is an academic research project planned to study phishing URL detection as URL patterns change over time. It will explore a reproducible workflow for data preparation, model evaluation, drift monitoring, and conditional retraining.
+AdaptivePhish is an academic, URL-only phishing detection project. It combines safe dataset ingestion, deterministic lexical features, model comparison, experiment tracking, time-aware evaluation, drift monitoring, governance, and an API deployment path. Dataset URLs are treated as inert text and are never visited.
 
-## Research objectives
+## Verified status
 
-- Investigate URL features for distinguishing phishing and legitimate URLs.
-- Evaluate detection performance using time-aware data splits.
-- Study temporal drift and its relationship to model performance.
-- Compare conditional retraining with a fixed-model baseline.
-- Establish reproducible experiments and model governance criteria before deployment.
+- PhreshPhish source pinned to revision `eca603e0ecd4f698f8d4d226c088659e72681239`.
+- Four local train shards currently verified: 20,413 rows total. The remaining ingestion campaign is separately budgeted and is not claimed complete.
+- Phase 3 compared logistic regression, random forest, XGBoost, and LightGBM; its trusted `phase3-v1` artifact remains the champion.
+- A later-period evaluation over the verified local scope found critical PSI drift, while the temporal candidate underperformed the champion and was correctly rejected by governance.
+- MLflow uses a local SQLite store. FastAPI exposes health, prediction, and Prometheus metrics endpoints. Docker, offline CI, and an AWS deployment boundary are documented.
 
-## Planned technology stack
+## Quick start
 
-- Python 3.12–3.14, with an isolated virtual environment.
-- PhreshPhish dataset and DVC for data versioning.
-- pandas, NumPy, and scikit-learn for feature engineering and machine learning.
-- MLflow for experiment tracking and model management.
-- Drift monitoring and conditional retraining components.
-- FastAPI for prediction serving and Docker for packaging.
-- GitHub Actions for CI/CD and AWS EC2 for deployment.
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests/unit -v
+.\.venv\Scripts\python.exe -B scripts\demo.py
+.\.venv\Scripts\python.exe -B scripts\run_api.py
+```
 
-PyArrow and DVC are now used for the bounded Phase 2 dataset workflow. The remaining technologies are planned and have not been integrated yet.
+Useful documentation:
 
-## Planned MLOps workflow
+- [Phase 2 data record](docs/phase2_completion.md)
+- [Phase 3 ML pipeline](docs/phase3_ml_pipeline.md)
+- [Phases 4–11 implementation record](docs/phase4_to_11_completion.md)
+- [Architecture](docs/architecture.md)
+- [Deployment guide](docs/deployment.md)
 
-Acquire and version data → prepare temporal splits → engineer URL features → train and track experiments → evaluate and review models → deploy approved models → monitor drift and performance → conditionally retrain → evaluate again before promotion.
+## Reproducibility boundaries
 
-## Current status
-
-**Phase 2 dataset work is complete, and the Phase 3 URL-only ML pipeline is implemented.** Phase 3 provides deterministic lexical features, leakage-resistant random splits, four required candidate models, aggregate evaluation, trusted local artifacts, and safe CLIs. See [docs/phase2_completion.md](docs/phase2_completion.md) and [docs/phase3_ml_pipeline.md](docs/phase3_ml_pipeline.md).
-
-Real Phase 3 training results require the declared ML packages to be installed and the training command to run successfully. Temporal evaluation, MLflow tracking, drift detection, retraining, governance, serving, containers, CI/CD, and deployment are not implemented. Work continues one approved phase at a time.
+Git contains source code, tests, configuration, documentation, and DVC pointer files—not raw phishing data. No DVC remote is configured, so data cannot yet be retrieved on a clean machine from Git alone. The model artifact is also local and ignored. Live AWS deployment and further dataset ingestion require explicit authorization because they change external state and may incur cost.

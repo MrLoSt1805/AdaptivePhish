@@ -1,0 +1,107 @@
+schema: '2.0'
+stages:
+  verify:
+    cmd: python -B scripts/local_pipeline.py verify
+    deps:
+    - path: configs/phreshphish_inventory.json
+      hash: md5
+      md5: 2d73263d591b8c3ce568d244448cca4d
+      size: 24125
+    - path: data/raw/phreshphish
+      hash: md5
+      md5: e273cc7ebca1d52edb818f6ffa49b9b6.dir
+      size: 3144825
+      nfiles: 21
+    - path: scripts/verify_expanded_dataset.py
+      hash: md5
+      md5: 4bebe42f2cdfcc978465569524919a3c
+      size: 3361
+    - path: src/adaptivephish/data
+      hash: md5
+      md5: b37a8d8e70da7e2831aae0db19668c1e.dir
+      size: 181507
+      nfiles: 19
+    outs:
+    - path: reports/results/dataset_quality.json
+      hash: md5
+      md5: ba55659819095a0ea04b11976c43a550
+      size: 506
+  prepare:
+    cmd: python -B scripts/local_pipeline.py prepare
+    deps:
+    - path: data/raw/phreshphish
+      hash: md5
+      md5: e273cc7ebca1d52edb818f6ffa49b9b6.dir
+      size: 3144825
+      nfiles: 21
+    - path: reports/results/dataset_quality.json
+      hash: md5
+      md5: ba55659819095a0ea04b11976c43a550
+      size: 506
+    - path: scripts/local_pipeline.py
+      hash: md5
+      md5: 836bf4f1e21d19f01e0961ae41447f25
+      size: 3738
+    - path: src/adaptivephish/features
+      hash: md5
+      md5: f9a360113f5920386f463d499bbd16e7.dir
+      size: 10130
+      nfiles: 5
+    - path: src/adaptivephish/pipelines
+      hash: md5
+      md5: 85206d475e25fefe37a772fc55c86743.dir
+      size: 49416
+      nfiles: 10
+    outs:
+    - path: data/processed/features.joblib
+      hash: md5
+      md5: 5be3a90ace1c684d73b971664fd6387f
+      size: 2200361
+  train:
+    cmd: python -B scripts/local_pipeline.py train
+    deps:
+    - path: data/processed/features.joblib
+      hash: md5
+      md5: 5be3a90ace1c684d73b971664fd6387f
+      size: 2200361
+    - path: scripts/local_pipeline.py
+      hash: md5
+      md5: 836bf4f1e21d19f01e0961ae41447f25
+      size: 3738
+    - path: src/adaptivephish/models/training.py
+      hash: md5
+      md5: ad2c95d6ba6404a8e9726c4ffac9c623
+      size: 1473
+    outs:
+    - path: artifacts/pipeline_model.joblib
+      hash: md5
+      md5: d52f2b954ef29f35dfacb062f5b4fec0
+      size: 489042
+    - path: reports/results/pipeline_validation_v2.json
+      hash: md5
+      md5: caa56954490d29341d08dfb74ee1edee
+      size: 2054
+  evaluate:
+    cmd: python -B scripts/local_pipeline.py evaluate
+    deps:
+    - path: artifacts/pipeline_model.joblib
+      hash: md5
+      md5: d52f2b954ef29f35dfacb062f5b4fec0
+      size: 489042
+    - path: data/processed/features.joblib
+      hash: md5
+      md5: 5be3a90ace1c684d73b971664fd6387f
+      size: 2200361
+    - path: scripts/local_pipeline.py
+      hash: md5
+      md5: 836bf4f1e21d19f01e0961ae41447f25
+      size: 3738
+    - path: src/adaptivephish/evaluation/metrics.py
+      hash: md5
+      md5: 7747a236d88d8de5c2507795786ea378
+      size: 1720
+    outs:
+    - path: reports/results/pipeline_test_v2.json
+      hash: md5
+      md5: b659c5a1a7bcfc8bb8b659f8005658a7
+      size: 889

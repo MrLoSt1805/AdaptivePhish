@@ -8,7 +8,7 @@ from adaptivephish.data.output_writer import (
     APPROVED_DIRECTORY, OutputWriterError, manifest_path,
     verify_completed_output, write_validated_parquet,
 )
-from adaptivephish.data.shard_inventory import SELECTED_COLUMNS, ShardSpec
+from adaptivephish.data.shard_inventory import SELECTED_COLUMNS
 from adaptivephish.data.validation import normalize_batches
 
 

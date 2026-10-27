@@ -1,0 +1,60 @@
+{
+  "approval_id": "cead48882ecb4fe69b57f7c39420d81ac5999622059006632185f9125c8f3efc",
+  "dataset": "phreshphish/phreshphish",
+  "limits": {
+    "per_shard_application_bytes": 50000000,
+    "session_application_bytes": 150000000,
+    "session_http_requests": 96,
+    "shard_count": 3,
+    "wall_clock_seconds": 300.0
+  },
+  "metadata_application_body_bytes": 6320,
+  "metadata_http_requests": 18,
+  "revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+  "schema_version": 1,
+  "selected_columns": [
+    "sha256",
+    "url",
+    "label",
+    "date"
+  ],
+  "shards": [
+    {
+      "estimated_application_body_bytes": 442520,
+      "expected_file_size": 354725131,
+      "footer_bytes": 2979,
+      "key": "train-002",
+      "path": "data/train-002.parquet",
+      "planned_requests": 7,
+      "row_groups": 1,
+      "rows": 6506,
+      "selected_compressed_bytes": 439529,
+      "split": "train"
+    },
+    {
+      "estimated_application_body_bytes": 491491,
+      "expected_file_size": 433568855,
+      "footer_bytes": 1640,
+      "key": "train-003",
+      "path": "data/train-003.parquet",
+      "planned_requests": 7,
+      "row_groups": 1,
+      "rows": 7127,
+      "selected_compressed_bytes": 489839,
+      "split": "train"
+    },
+    {
+      "estimated_application_body_bytes": 502931,
+      "expected_file_size": 403296550,
+      "footer_bytes": 1665,
+      "key": "train-004",
+      "path": "data/train-004.parquet",
+      "planned_requests": 7,
+      "row_groups": 1,
+      "rows": 7425,
+      "selected_compressed_bytes": 501254,
+      "split": "train"
+    }
+  ],
+  "status": "approved"
+}
